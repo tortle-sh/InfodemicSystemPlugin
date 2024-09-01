@@ -5,7 +5,7 @@
 	"FriendlyName": "InfodemicSystem",
 	"Description": "",
 	"Category": "Other",
-	"CreatedBy": "TortleSH",
+	"CreatedBy": "Tortiboy",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
@@ -24,6 +24,7 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
+		
 		{
 			"Name": "InfodemicEditor",
 			"Type": "Editor",
