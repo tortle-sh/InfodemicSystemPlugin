@@ -8,6 +8,8 @@
 void UInfodemicAssetManager::LoadInfodemicAssets()
 {
 	LoadPrimaryAssetsWithType(InformationBundleType);
+	UE_LOG(LogTemp, Display, TEXT("Infodemic initialized"));
+	UnloadPrimaryAssetsWithType(InformationBundleType);
 }
 
 void UInfodemicAssetManager::StartInitialLoading()

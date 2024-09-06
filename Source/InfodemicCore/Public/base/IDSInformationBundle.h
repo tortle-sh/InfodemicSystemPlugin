@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 
-#include "AssetTagTreeContainerSubject.h"
+#include "GameplayTagSubject.h"
 #include "IDSInformation.h"
 #include "UObject/Object.h"
 
@@ -26,11 +26,13 @@ protected:
 	TArray<FUIDSInformation> Information;
 
 	UPROPERTY(EditAnywhere, Category=Information)
-	FAssetTagTreeContainerSubject InformationCategories;
+	FGameplayTagSubject InformationCategories = {this, TAG_AND_CHILDREN};
 
 public:
+	~UIDSInformationBundle();
 	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
 	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+	
 };
 
