@@ -3,21 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "AssetTagTreeContainerSubject.h"
 #include "IDSInformation.h"
 #include "UObject/Object.h"
+
 #include "IDSInformationBundle.generated.h"
 
-/**
- * 
- */
 UCLASS(BlueprintType)
-class INFODEMICCORE_API UIDSInformationBundle : public UObject
+class INFODEMICCORE_API UIDSInformationBundle : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
-
-public:
-	UIDSInformationBundle();
 
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category=MetaData)
@@ -29,11 +25,12 @@ protected:
 	UPROPERTY(EditAnywhere, Category=Information)
 	TArray<FUIDSInformation> Information;
 
-	UPROPERTY(VisibleAnywhere, Category=Information)
-	TWeakObjectPtr<UAssetTagTreeContainerSubject> InformationCategoriesHandler;
+	UPROPERTY(EditAnywhere, Category=Information)
+	FAssetTagTreeContainerSubject InformationCategories;
+
+public:
+	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
+	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
+	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 };
 
-inline UIDSInformationBundle::UIDSInformationBundle()
-{
-	InformationCategoriesHandler = NewObject<UAssetTagTreeContainerSubject>();
-}
