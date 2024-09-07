@@ -3,8 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagObserver.h"
 #include "GenericGraph.h"
 #include "IDSInformationBundle.h"
+#include "Engine/StreamableManager.h"
 #include "IDSGraph.generated.h"
 
 UCLASS(BlueprintType)
@@ -19,9 +21,12 @@ class INFODEMICCORE_API UIDSGraph : public UGenericGraph
 
 	UPROPERTY()
 	TArray<UIDSInformationBundle*> InheritedInformationCollection;
-
+	
 	UPROPERTY(EditAnywhere, Category=Information)
-	FGameplayTagContainer InheritedInformation;
+	FGameplayTagObserver InheritedInformation = {this};
+
+	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
+	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
 
 	UPROPERTY()
 	TArray<UIDSInformationBundle*> CombinedInformationCollection;
@@ -29,6 +34,9 @@ class INFODEMICCORE_API UIDSGraph : public UGenericGraph
 	UFUNCTION()
 	void UpdateCombinedInformationCollection();
 
+	UFUNCTION()
+	void OnInheritedInformationUpdated();
 public:
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+	
 };

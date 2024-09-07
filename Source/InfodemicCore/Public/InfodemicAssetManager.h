@@ -15,9 +15,6 @@ class INFODEMICCORE_API UInfodemicAssetManager : public UAssetManager
 {
 	GENERATED_BODY()
 
-
-	void LoadAssetCallback() const;
-
 protected:
 	virtual void OnAssetRegistryFilesLoaded() override;
 	
