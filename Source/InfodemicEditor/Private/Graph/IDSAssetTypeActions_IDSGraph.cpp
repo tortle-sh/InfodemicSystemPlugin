@@ -3,7 +3,7 @@
 
 #include "Graph/IDSAssetTypeActions_IDSGraph.h"
 
-#include "base/IDSGraph.h"
+#include "graph/IDSGraph.h"
 
 FIDSAssetTypeActions_IDSGraph::FIDSAssetTypeActions_IDSGraph(EAssetTypeCategories::Type MyCategory): FIDSAssetTypeActions_Base(MyCategory)
 {

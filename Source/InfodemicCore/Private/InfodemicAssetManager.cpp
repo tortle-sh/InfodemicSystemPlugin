@@ -2,21 +2,23 @@
 
 #include "InfodemicAssetManager.h"
 
+#include "InfodemicConstants.h"
 #include "base/IDSInformationBundle.h"
 
 
 void UInfodemicAssetManager::LoadInfodemicAssets()
 {
 	LoadPrimaryAssetsWithType(InformationBundleType);
-	UE_LOG(LogTemp, Display, TEXT("Infodemic Assets initialized"));
+	LoadPrimaryAssetsWithType(GraphType);
 	
+	UnloadPrimaryAssetsWithType(GraphType);
 	UnloadPrimaryAssetsWithType(InformationBundleType);
 }
 
 void UInfodemicAssetManager::StartInitialLoading()
 {
 	Super::StartInitialLoading();
-	ScanPathsForPrimaryAssets(InformationBundleType, {"/Game/SlimyAdventures/GraphSchema/InformationBundles"}, UIDSInformationBundle::StaticClass(), false);
+	UE_LOG(LogTemp, Display, TEXT("%s initial load"), *GetName());
 }
 
 void UInfodemicAssetManager::OnAssetRegistryFilesLoaded()

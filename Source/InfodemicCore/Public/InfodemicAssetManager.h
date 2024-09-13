@@ -19,8 +19,6 @@ protected:
 	virtual void OnAssetRegistryFilesLoaded() override;
 	
 public:
-	inline static const FPrimaryAssetType InformationBundleType {"IDSInformationBundle"};
-	
 	void LoadInfodemicAssets();
 	virtual void StartInitialLoading() override;
 };

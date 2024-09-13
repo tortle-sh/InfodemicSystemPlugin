@@ -5,8 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameplayTagObserver.h"
 #include "GenericGraph.h"
-#include "IDSInformationBundle.h"
-#include "Engine/StreamableManager.h"
+#include "base/IDSInformationBundle.h"
 #include "IDSGraph.generated.h"
 
 UCLASS(BlueprintType)
@@ -38,5 +37,6 @@ class INFODEMICCORE_API UIDSGraph : public UGenericGraph
 	void OnInheritedInformationUpdated();
 public:
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
-	
+
+	virtual FPrimaryAssetId GetPrimaryAssetId() const override;	
 };

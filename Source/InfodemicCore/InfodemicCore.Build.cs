@@ -21,7 +21,6 @@ public class InfodemicCore : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "GameplayTags",
-                "AssetTagTreeRuntime",
                 "UnrealEd"
             }
         );

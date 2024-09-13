@@ -4,7 +4,6 @@
 
 UIDSInformationBundle::~UIDSInformationBundle()
 {
-	InformationCategories.DeinitializeSubject();
 }
 
 void UIDSInformationBundle::PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph)

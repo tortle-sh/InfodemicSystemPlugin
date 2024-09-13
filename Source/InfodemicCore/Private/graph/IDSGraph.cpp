@@ -1,6 +1,6 @@
-﻿#include "base/IDSGraph.h"
+﻿#include "graph/IDSGraph.h"
 
-#include "GameplayTagsManager.h"
+#include "InfodemicConstants.h"
 #include "graph/IDSGraphEdge.h"
 #include "graph/IDSGraphNode.h"
 
@@ -26,6 +26,7 @@ void UIDSGraph::PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph)
 	Super::PostLoadSubobjects(OuterInstanceGraph);
 
 	this->InheritedInformation.Callback.BindDynamic(this, &UIDSGraph::OnInheritedInformationUpdated);
+	this->InheritedInformation.InitializeObserver();
 }
 
 void UIDSGraph::UpdateCombinedInformationCollection()
@@ -53,4 +54,9 @@ void UIDSGraph::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEve
 	{
 		UpdateCombinedInformationCollection();
 	}
+}
+
+FPrimaryAssetId UIDSGraph::GetPrimaryAssetId() const
+{
+	return FPrimaryAssetId(GraphType, *GetName());
 }

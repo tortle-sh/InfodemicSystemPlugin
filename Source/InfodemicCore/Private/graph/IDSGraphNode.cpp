@@ -1,6 +1,6 @@
 ﻿#include "graph/IDSGraphNode.h"
 
-#include "base/IDSGraph.h"
+#include "graph/IDSGraph.h"
 
 UIDSGraphNode::UIDSGraphNode()
 {
