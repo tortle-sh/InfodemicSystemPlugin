@@ -25,8 +25,14 @@ void UIDSGraph::PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph)
 {
 	Super::PostLoadSubobjects(OuterInstanceGraph);
 
-	this->InheritedInformation.Callback.BindDynamic(this, &UIDSGraph::OnInheritedInformationUpdated);
+	this->InheritedInformation.Callback.BindDynamic(this, &UIDSGraph::UpdateInheritedInformation);
 	this->InheritedInformation.InitializeObserver();
+	this->UpdateInheritedInformation();
+}
+
+void UIDSGraph::OnDeleteAsset_Implementation()
+{
+	this->InheritedInformation.DeinitalizeObserver();
 }
 
 void UIDSGraph::UpdateCombinedInformationCollection()
@@ -36,9 +42,21 @@ void UIDSGraph::UpdateCombinedInformationCollection()
 	CombinedInformationCollection.Append(UniqueInformationCollection);
 }
 
-void UIDSGraph::OnInheritedInformationUpdated()
+void UIDSGraph::UpdateInheritedInformation()
 {
-	UE_LOG(LogTemp, Display, TEXT("Inherited Information Updated"));
+	InheritedInformationCollection.Empty();
+	TArray<TSoftObjectPtr<UObject>> Objects = InheritedInformation.FindObservedObjects();
+	
+	for(auto Object : Objects)
+	{
+		if(Object.IsValid())
+		{
+			if(TSoftObjectPtr<UIDSInformationBundle> InformationBundle = Cast<UIDSInformationBundle>(Object.Get()))
+			{
+				InheritedInformationCollection.Add(InformationBundle);
+			}
+		}
+	}
 }
 
 void UIDSGraph::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
@@ -47,6 +65,7 @@ void UIDSGraph::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEve
 	if(PropertyChangedEvent.GetMemberPropertyName() == GET_MEMBER_NAME_CHECKED(UIDSGraph, InheritedInformation))
 	{
 		InheritedInformation.PostEditChangeProperty(PropertyChangedEvent);
+		UpdateInheritedInformation();
 	}
 
 	if(PropertyChangedEvent.GetMemberPropertyName() == GET_MEMBER_NAME_CHECKED(UIDSGraph, InheritedInformationCollection) ||

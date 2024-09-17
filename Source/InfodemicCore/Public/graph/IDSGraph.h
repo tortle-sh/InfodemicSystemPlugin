@@ -5,36 +5,39 @@
 #include "CoreMinimal.h"
 #include "GameplayTagObserver.h"
 #include "GenericGraph.h"
+#include "OnDeleteAsset.h"
 #include "base/IDSInformationBundle.h"
 #include "IDSGraph.generated.h"
 
 UCLASS(BlueprintType)
-class INFODEMICCORE_API UIDSGraph : public UGenericGraph 
+class INFODEMICCORE_API UIDSGraph : public UGenericGraph, public IOnDeleteAsset
 {
 	GENERATED_BODY()
 
 	UIDSGraph();
-
-	UPROPERTY(EditAnywhere, Category=Information)
-	TArray<UIDSInformationBundle*> UniqueInformationCollection;
-
-	UPROPERTY()
-	TArray<UIDSInformationBundle*> InheritedInformationCollection;
 	
 	UPROPERTY(EditAnywhere, Category=Information)
 	FGameplayTagObserver InheritedInformation = {this};
 
+	UPROPERTY(EditAnywhere, Category=Information)
+	TSet<TSoftObjectPtr<UIDSInformationBundle>> UniqueInformationCollection;
+
+	UPROPERTY(VisibleAnywhere, Category=Information)
+	TSet<TSoftObjectPtr<UIDSInformationBundle>> InheritedInformationCollection;
+	
+	UPROPERTY()
+	TSet<TSoftObjectPtr<UIDSInformationBundle>> CombinedInformationCollection;
+
 	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
 	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
 
-	UPROPERTY()
-	TArray<UIDSInformationBundle*> CombinedInformationCollection;
+	virtual void OnDeleteAsset_Implementation() override;
 
 	UFUNCTION()
 	void UpdateCombinedInformationCollection();
 
 	UFUNCTION()
-	void OnInheritedInformationUpdated();
+	void UpdateInheritedInformation();
 public:
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 

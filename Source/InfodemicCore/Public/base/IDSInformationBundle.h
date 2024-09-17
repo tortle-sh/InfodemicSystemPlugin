@@ -6,12 +6,13 @@
 
 #include "GameplayTagSubject.h"
 #include "IDSInformation.h"
+#include "OnDeleteAsset.h"
 #include "UObject/Object.h"
 
 #include "IDSInformationBundle.generated.h"
 
 UCLASS(BlueprintType)
-class INFODEMICCORE_API UIDSInformationBundle : public UPrimaryDataAsset
+class INFODEMICCORE_API UIDSInformationBundle : public UPrimaryDataAsset, public IOnDeleteAsset
 {
 	GENERATED_BODY()
 
@@ -29,8 +30,8 @@ protected:
 	FGameplayTagSubject InformationCategories = {this, TAG_AND_CHILDREN};
 
 public:
-	~UIDSInformationBundle();
 	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
+	virtual void OnDeleteAsset_Implementation() override;
 	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 };

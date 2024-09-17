@@ -1,16 +1,15 @@
 ﻿#include "base/IDSInformationBundle.h"
 
-#include "InfodemicAssetManager.h"
-
-UIDSInformationBundle::~UIDSInformationBundle()
-{
-}
-
 void UIDSInformationBundle::PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph)
 {
 	Super::PostLoadSubobjects(OuterInstanceGraph);
 	UE_LOG(LogTemp, Display, TEXT("%s loaded"), *GetFName().ToString());
 	InformationCategories.InitializeSubject();
+}
+
+void UIDSInformationBundle::OnDeleteAsset_Implementation()
+{
+	this->InformationCategories.DeinitializeSubject();
 }
 
 void UIDSInformationBundle::PreEditChange(FProperty* PropertyAboutToChange)

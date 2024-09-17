@@ -21,4 +21,5 @@ protected:
 public:
 	void LoadInfodemicAssets();
 	virtual void StartInitialLoading() override;
+	virtual void OnAssetRemoved(const FAssetData& Data) override;
 };
