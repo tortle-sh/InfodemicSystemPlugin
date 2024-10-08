@@ -9,9 +9,9 @@
 #include "Widgets/Layout/SBox.h"
 #include "Widgets/Text/STextBlock.h"
 #include "ToolMenus.h"
-#include "Graph/IDSAssetTypeActions_IDSGraph.h"
-#include "InformationBundle/IDSAssetTypeActions_IDSInformationBundle.h"
-#include "Node/IDSAssetTypeActions_IDSNode.h"
+#include "InformationBundle/AssetTypeActions_IDS_InformationBundle.h"
+#include "InformationRelation/AssetTypeActions_IDS_Relation.h"
+#include "Node/AssetTypeActions_IDS_Node.h"
 #include "Tabs/SFullGraphView.h"
 
 static const FName InfodemicEditorTabName("InfodemicEditor");
@@ -48,8 +48,9 @@ void FInfodemicEditorModule::StartupModule()
 	InfodemicEditorCategoryBit = AssetTools.RegisterAdvancedAssetCategory(FName(TEXT("InfodemicSystem")), LOCTEXT("InfodemicCatergory", "Infodemic System"));
 
 	FAssetTypeActionRegistry::RegisterActions(ACTION_NAMESPACE,{
-		MakeShared<FIDSAssetTypeActions_IDSInformationBundle>(InfodemicEditorCategoryBit),
-		MakeShared<FIDSAssetTypeActions_IDSNode>(InfodemicEditorCategoryBit)
+		MakeShared<FAssetTypeActions_IDS_InformationBundle>(InfodemicEditorCategoryBit),
+		MakeShared<FAssetTypeActions_IDS_Node>(InfodemicEditorCategoryBit),
+		MakeShared<FAssetTypeActions_IDS_Relation>(InfodemicEditorCategoryBit)
 	});
 }
 

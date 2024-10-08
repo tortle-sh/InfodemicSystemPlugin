@@ -1,4 +1,4 @@
 ﻿#pragma once
 
-inline static const FPrimaryAssetType InformationBundleType {"IDSInformationBundle"};
-inline static const FPrimaryAssetType GraphType {"IDSGraph"};
+inline static const FPrimaryAssetType InformationBundleType {"IDS_InformationBundle"};
+inline static const FPrimaryAssetType InformationCollectionType {"IDS_InformationCollection"};

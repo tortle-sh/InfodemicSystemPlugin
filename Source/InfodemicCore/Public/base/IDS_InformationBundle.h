@@ -3,16 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AssetTagTreeSubsystem.h"
 
-#include "GameplayTagSubject.h"
-#include "IDSInformation.h"
+#include "AssetTagSubject.h"
+#include "IDS_Information.h"
 #include "OnDeleteAsset.h"
 #include "UObject/Object.h"
 
-#include "IDSInformationBundle.generated.h"
+#include "IDS_InformationBundle.generated.h"
 
 UCLASS(BlueprintType)
-class INFODEMICCORE_API UIDSInformationBundle : public UPrimaryDataAsset, public IOnDeleteAsset
+class INFODEMICCORE_API UIDS_InformationBundle : public UPrimaryDataAsset, public IOnDeleteAsset
 {
 	GENERATED_BODY()
 
@@ -24,15 +25,17 @@ protected:
 	FText Description;
 	
 	UPROPERTY(EditAnywhere, Category=Information)
-	TArray<FUIDSInformation> Information;
+	TArray<FIDS_Information> Information;
 
 	UPROPERTY(EditAnywhere, Category=Information)
-	FGameplayTagSubject InformationCategories = {this, TAG_AND_CHILDREN};
+	FAssetTagSubject InformationCategories = {this, Children};
 
 public:
 	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
 	virtual void OnDeleteAsset_Implementation() override;
 	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+
+	const TArray<FIDS_Information>& GetInformation() const;
 };
 

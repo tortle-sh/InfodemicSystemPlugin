@@ -1,13 +1,13 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "graph/IDSGraphEdge.h"
+#include "graph/IDS_GraphEdge.h"
 
-UIDSGraphEdge::UIDSGraphEdge()
+UIDS_GraphEdge::UIDS_GraphEdge()
 {
 }
 
-void UIDSGraphEdge::SetNodeTitleToIdsRelationTitle()
+void UIDS_GraphEdge::SetNodeTitleToIdsRelationTitle()
 {
 		if(IdsRelation.IsValid())
 		{
@@ -21,11 +21,11 @@ void UIDSGraphEdge::SetNodeTitleToIdsRelationTitle()
 		}
 }
 
-void UIDSGraphEdge::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
+void UIDS_GraphEdge::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 
-	if(PropertyChangedEvent.GetMemberPropertyName() == GET_MEMBER_NAME_CHECKED(UIDSGraphEdge, IdsRelation))
+	if(PropertyChangedEvent.GetMemberPropertyName() == GET_MEMBER_NAME_CHECKED(UIDS_GraphEdge, IdsRelation))
 	{
 		SetNodeTitleToIdsRelationTitle();
 	}

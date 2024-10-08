@@ -3,27 +3,26 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "base/nodes/IDSNode.h"
+#include "GenericGraphEdge.h"
+#include "base/IDS_Relation.h"
 #include "UObject/Object.h"
-#include "GenericGraphRuntime/Public/GenericGraphNode.h"
-#include "IDSGraphNode.generated.h"
+#include "IDS_GraphEdge.generated.h"
 
-/**
- * 
- */
+class UIDS_Relation;
+
 UCLASS()
-class INFODEMICCORE_API UIDSGraphNode : public UGenericGraphNode
+class INFODEMICCORE_API UIDS_GraphEdge : public UGenericGraphEdge
 {
 	GENERATED_BODY()
 
 protected:
-	UIDSGraphNode();
-	void SetNodeTitleToIdsNodeTitle();
+	UIDS_GraphEdge();
+
+	void SetNodeTitleToIdsRelationTitle();
 
 public:
 	UPROPERTY(EditAnywhere)
-	TWeakObjectPtr<UIDSNode> IdsNode;
+	TWeakObjectPtr<UIDS_Relation> IdsRelation;
 
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
-	
 };

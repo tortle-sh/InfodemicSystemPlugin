@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Object.h"
-#include "Factory_IDSGraph.generated.h"
+#include "Factory_IDS_InformationCollection.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class INFODEMICEDITOR_API UFactory_IDSGraph : public UFactory
+class INFODEMICEDITOR_API UFactory_IDS_InformationCollection : public UFactory
 {
 	GENERATED_BODY()
 };

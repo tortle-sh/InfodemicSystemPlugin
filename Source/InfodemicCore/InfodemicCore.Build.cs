@@ -12,6 +12,7 @@ public class InfodemicCore : ModuleRules
                 "Core", 
                 "GenericGraphRuntime",
                 "AssetTagTreeRuntime",
+                "DataValidation"
             }
         );
 
@@ -21,7 +22,7 @@ public class InfodemicCore : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "GameplayTags",
-                "UnrealEd"
+                "UnrealEd",
             }
         );
     }

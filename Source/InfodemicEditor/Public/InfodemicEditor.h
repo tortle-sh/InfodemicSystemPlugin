@@ -6,7 +6,7 @@
 #include "AssetTypeActions_Base.h"
 #include "Modules/ModuleManager.h"
 
-class FIDSAssetTypeActions_IDSInformationBundle;
+class FAssetTypeActions_IDS_InformationBundle;
 class FToolBarBuilder;
 class FMenuBuilder;
 

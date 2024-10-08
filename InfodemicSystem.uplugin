@@ -40,6 +40,10 @@
 		{
 			"Name": "GenericGraph",
 			"Enabled": true
+		},
+		{
+			"Name": "AssetTagTree",
+			"Enabled": true
 		}
 	]
 }

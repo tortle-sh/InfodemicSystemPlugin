@@ -10,8 +10,8 @@ void UInfodemicAssetManager::LoadInfodemicAssets()
 	LoadPrimaryAssetsWithType(InformationBundleType);
 	UnloadPrimaryAssetsWithType(InformationBundleType);
 	
-	LoadPrimaryAssetsWithType(GraphType);
-	UnloadPrimaryAssetsWithType(GraphType);
+	LoadPrimaryAssetsWithType(InformationCollectionType);
+	UnloadPrimaryAssetsWithType(InformationCollectionType);
 }
 
 void UInfodemicAssetManager::StartInitialLoading()
@@ -22,6 +22,11 @@ void UInfodemicAssetManager::StartInitialLoading()
 
 void UInfodemicAssetManager::OnAssetRemoved(const FAssetData& Data)
 {
+	if(Data.GetAsset() == nullptr)
+	{
+		return;
+	}
+	
 	if(Data.GetAsset()->Implements<UOnDeleteAsset>())
 	{
 		IOnDeleteAsset::Execute_OnDeleteAsset(Data.GetAsset());

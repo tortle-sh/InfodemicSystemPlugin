@@ -3,18 +3,17 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/Object.h"
 #include "common/IDSAssetTypeActions_Base.h"
+#include "UObject/Object.h"
 
 /**
  * 
  */
-class INFODEMICEDITOR_API FIDSAssetTypeActions_IDSGraph : public FIDSAssetTypeActions_Base
+class INFODEMICEDITOR_API FAssetTypeActions_IDS_Node : public FIDSAssetTypeActions_Base
 {
 public:
-	explicit FIDSAssetTypeActions_IDSGraph(EAssetTypeCategories::Type MyCategory);
+	explicit FAssetTypeActions_IDS_Node(EAssetTypeCategories::Type MyCategory);
 
-private:
 	virtual UClass* GetSupportedClass() const override;
 	virtual FText GetName() const override;
 	virtual FColor GetTypeColor() const override;

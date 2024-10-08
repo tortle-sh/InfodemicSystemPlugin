@@ -8,10 +8,10 @@
 /**
  * 
  */
-class INFODEMICEDITOR_API FIDSAssetTypeActions_IDSInformationBundle : public FIDSAssetTypeActions_Base
+class INFODEMICEDITOR_API FAssetTypeActions_IDS_InformationBundle : public FIDSAssetTypeActions_Base
 {
 public:
-	explicit FIDSAssetTypeActions_IDSInformationBundle(EAssetTypeCategories::Type MyCategory);
+	explicit FAssetTypeActions_IDS_InformationBundle(EAssetTypeCategories::Type MyCategory);
 
 	virtual UClass* GetSupportedClass() const override;
 	virtual FText GetName() const override;
