@@ -8,7 +8,7 @@
 #include "UObject/Object.h"
 #include "IDS_Node.generated.h"
 
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Ids_Type_Node);
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Ids_Node_Tag);
 
 UCLASS(BlueprintType, EditInlineNew)
 class INFODEMICCORE_API UIDS_Node : public UPrimaryDataAsset

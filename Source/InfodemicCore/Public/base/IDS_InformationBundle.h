@@ -25,7 +25,8 @@ protected:
 	FText Description;
 	
 	UPROPERTY(EditAnywhere, Category=Information)
-	TArray<FIDS_Information> Information;
+	TSet<FIDS_Information> Information;
+	TSet<FIDS_Information> PreChangeInformation;
 
 	UPROPERTY(EditAnywhere, Category=Information)
 	FAssetTagSubject InformationCategories = {this, Children};
@@ -36,6 +37,6 @@ public:
 	virtual void PreEditChange(FProperty* PropertyAboutToChange) override;
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 
-	const TArray<FIDS_Information>& GetInformation() const;
+	const TSet<FIDS_Information>& GetInformation() const;
 };
 

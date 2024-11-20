@@ -8,7 +8,7 @@
 #include "UObject/Object.h"
 #include "IDS_Node_Actor.generated.h"
 
-UE_DECLARE_GAMEPLAY_TAG_EXTERN(Ids_Type_Node_Actor)
+UE_DECLARE_GAMEPLAY_TAG_EXTERN(Ids_Node_Actor_Tag)
 
 UCLASS(BlueprintType)
 class INFODEMICCORE_API UIDS_Node_Actor : public UIDS_Node

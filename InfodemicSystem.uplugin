@@ -24,7 +24,6 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
-		
 		{
 			"Name": "InfodemicEditor",
 			"Type": "Editor",
@@ -33,6 +32,11 @@
 		{
 			"Name": "InfodemicNodes",
 			"Type": "UncookedOnly",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "InfodemicQueryInterpreter",
+			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
 	],
