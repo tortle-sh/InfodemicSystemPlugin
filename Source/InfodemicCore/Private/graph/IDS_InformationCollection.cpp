@@ -9,6 +9,10 @@ UIDS_InformationCollection::UIDS_InformationCollection()
 {
 	NodeType = UIDS_GraphNode::StaticClass();
 	EdgeType = UIDS_GraphEdge::StaticClass();
+
+	UIDS_GraphNode *Node = NewObject<UIDS_GraphNode>();
+	Node->SetNodeTitle(FText::FromString("test"));
+	AllNodes.Add(Node);
 }
 
 void UIDS_InformationCollection::PreEditChange(FProperty* PropertyAboutToChange)
