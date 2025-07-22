@@ -1,10 +1,14 @@
 ﻿#include "base/IDS_InformationBundle.h"
 
+#include "InfodemicCore.h"
+#include "db/InfodemicDbSubsystem.h"
+
 void UIDS_InformationBundle::PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph)
 {
 	Super::PostLoadSubobjects(OuterInstanceGraph);
-	UE_LOG(LogTemp, Display, TEXT("%s loaded"), *GetFName().ToString());
-	InformationCategories.InitializeSubject();
+	UE_LOG(InfodemicCore, Display, TEXT("%s loaded"), *GetFName().ToString());
+
+	InformationCategories.InitializeSubject(this, Children);
 }
 
 void UIDS_InformationBundle::OnDeleteAsset_Implementation()
@@ -58,4 +62,12 @@ void UIDS_InformationBundle::PostEditChangeProperty(FPropertyChangedEvent& Prope
 const TSet<FIDS_Information>& UIDS_InformationBundle::GetInformation() const
 {
 	return this->Information;
+}
+
+void UIDS_InformationBundle::LoadIntoDb() const
+{
+	UInfodemicDbSubsystem* DbSubsystem = GEngine->GetEngineSubsystem<UInfodemicDbSubsystem>();
+	check(DbSubsystem != nullptr);
+
+	DbSubsystem->PersistBundle(this);
 }

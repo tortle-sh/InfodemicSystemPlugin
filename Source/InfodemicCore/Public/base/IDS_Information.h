@@ -27,6 +27,7 @@ struct INFODEMICCORE_API FIDS_Information
 	UPROPERTY(EditAnywhere)
 	UIDS_Node* EndNode;
 
+	UPROPERTY(VisibleAnywhere)
 	FGuid InformationId = FGuid::NewGuid();
 
 	bool operator==(const FIDS_Information& Other) const

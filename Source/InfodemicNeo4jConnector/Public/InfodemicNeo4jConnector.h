@@ -3,9 +3,9 @@
 #include "CoreMinimal.h"
 #include "Modules/ModuleManager.h"
 
-DECLARE_LOG_CATEGORY_EXTERN(InfodemicCore, Display, All);
+DECLARE_LOG_CATEGORY_EXTERN(InfodemicNeo4jConnector, Display, All);
 
-class FInfodemicCoreModule : public IModuleInterface
+class FInfodemicNeo4jConnectorModule : public IModuleInterface
 {
 public:
     virtual void StartupModule() override;

@@ -9,5 +9,10 @@ UIDS_Node_Character::UIDS_Node_Character()
 
 FText UIDS_Node_Character::GetNodeTitle()
 {
-	return CharacterName;
+	return Name;
+}
+
+const FText& UIDS_Node_Character::GetName() const
+{
+	return Name;
 }

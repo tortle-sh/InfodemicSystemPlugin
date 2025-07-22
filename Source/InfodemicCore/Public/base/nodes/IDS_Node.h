@@ -15,10 +15,12 @@ class INFODEMICCORE_API UIDS_Node : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
-
 protected:
 	UPROPERTY(EditAnywhere)
 	FGameplayTagContainer NodeTypes;
+
+	UPROPERTY(VisibleAnywhere, Category=Property)
+	FString NodeId = FGuid::NewGuid().ToString();
 
 	UIDS_Node();
 	void SetDefaultNodeType(const FGameplayTag &Tag);

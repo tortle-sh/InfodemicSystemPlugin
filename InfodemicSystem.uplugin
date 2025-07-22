@@ -2,7 +2,7 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "InfodemicSystem",
+	"FriendlyName": "InfodemicSystemPlugin",
 	"Description": "",
 	"Category": "Other",
 	"CreatedBy": "Tortiboy",
@@ -35,7 +35,7 @@
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "InfodemicQueryInterpreter",
+			"Name": "InfodemicNeo4jConnector",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
@@ -43,6 +43,10 @@
 	"Plugins": [
 		{
 			"Name": "GenericGraph",
+			"Enabled": true
+		},
+		{
+			"Name": "BA_Neo4j",
 			"Enabled": true
 		},
 		{

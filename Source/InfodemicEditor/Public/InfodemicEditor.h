@@ -6,6 +6,8 @@
 #include "AssetTypeActions_Base.h"
 #include "Modules/ModuleManager.h"
 
+DECLARE_LOG_CATEGORY_EXTERN(InfodemicEditor, Display, All);
+
 class FAssetTypeActions_IDS_InformationBundle;
 class FToolBarBuilder;
 class FMenuBuilder;

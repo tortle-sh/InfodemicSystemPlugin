@@ -14,13 +14,14 @@ class INFODEMICCORE_API UIDS_Relation : public UPrimaryDataAsset
 
 protected:
 	UPROPERTY(EditAnywhere)
-	FText Title;
+	FText RelationName;
 
 	UPROPERTY(EditAnywhere)
 	FGameplayTagContainer StartNodeTypes;
 
 	UPROPERTY(EditAnywhere)
 	FGameplayTagContainer EndNodeTypes;
+
 
 public:
 	[[nodiscard]] FGameplayTagContainer GetStartNodeTypes() const
@@ -35,6 +36,6 @@ public:
 
 	[[nodiscard]] FText GetTitle() const
 	{
-		return Title;
+		return RelationName;
 	}
 };

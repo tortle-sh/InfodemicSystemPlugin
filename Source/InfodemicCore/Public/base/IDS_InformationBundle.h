@@ -29,7 +29,7 @@ protected:
 	TSet<FIDS_Information> PreChangeInformation;
 
 	UPROPERTY(EditAnywhere, Category=Information)
-	FAssetTagSubject InformationCategories = {this, Children};
+	FAssetTagSubject InformationCategories;
 
 public:
 	virtual void PostLoadSubobjects(FObjectInstancingGraph* OuterInstanceGraph) override;
@@ -38,5 +38,8 @@ public:
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 
 	const TSet<FIDS_Information>& GetInformation() const;
+
+	UFUNCTION(CallInEditor, DisplayName="Load Into DB")
+	void LoadIntoDb() const;
 };
 

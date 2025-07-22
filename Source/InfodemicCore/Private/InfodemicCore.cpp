@@ -2,6 +2,8 @@
 
 #define LOCTEXT_NAMESPACE "FInfodemicCoreModule"
 
+DEFINE_LOG_CATEGORY(InfodemicCore);
+
 void FInfodemicCoreModule::StartupModule()
 {
     

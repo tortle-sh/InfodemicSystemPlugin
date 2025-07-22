@@ -3,6 +3,8 @@
 #include "InfodemicAssetManager.h"
 #include "OnDeleteAsset.h"
 #include "InfodemicConstants.h"
+#include "InfodemicCore.h"
+#include "db/InfodemicDbSubsystem.h"
 
 
 void UInfodemicAssetManager::LoadInfodemicAssets()
@@ -17,7 +19,7 @@ void UInfodemicAssetManager::LoadInfodemicAssets()
 void UInfodemicAssetManager::StartInitialLoading()
 {
 	Super::StartInitialLoading();
-	UE_LOG(LogTemp, Display, TEXT("%s initial load"), *GetName());
+	UE_LOG(InfodemicCore, Display, TEXT("%s initial load"), *GetName());
 }
 
 void UInfodemicAssetManager::OnAssetRemoved(const FAssetData& Data)
@@ -38,6 +40,6 @@ void UInfodemicAssetManager::OnAssetRemoved(const FAssetData& Data)
 void UInfodemicAssetManager::OnAssetRegistryFilesLoaded()
 {
 	Super::OnAssetRegistryFilesLoaded();
-	UE_LOG(LogTemp, Display, TEXT("OnAssetRegistryFilesLoaded"));
+	UE_LOG(InfodemicCore, Display, TEXT("OnAssetRegistryFilesLoaded"));
 	LoadInfodemicAssets();
 }

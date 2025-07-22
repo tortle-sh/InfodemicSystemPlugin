@@ -18,8 +18,12 @@ class INFODEMICCORE_API UIDS_Node_Character : public UIDS_Node_Actor
 	UIDS_Node_Character();
 
 protected:
-	UPROPERTY(EditDefaultsOnly, Category=Properties)
-	FText CharacterName;
+	UPROPERTY(EditDefaultsOnly, Category=Property)
+	FText Name;
 
 	virtual FText GetNodeTitle() override;
+	
+public:
+	UFUNCTION(Blueprintable)
+	[[nodiscard]] const FText& GetName() const;
 };

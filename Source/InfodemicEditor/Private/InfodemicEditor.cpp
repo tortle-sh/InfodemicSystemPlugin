@@ -19,6 +19,8 @@ static const FName InfodemicEditorTabName("InfodemicEditor");
 #define LOCTEXT_NAMESPACE "FInfodemicEditorModule"
 #define ACTION_NAMESPACE "InfodemicEditorActions"
 
+DEFINE_LOG_CATEGORY(InfodemicEditor);
+
 void FInfodemicEditorModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
