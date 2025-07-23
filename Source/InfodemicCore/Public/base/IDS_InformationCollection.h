@@ -20,7 +20,7 @@ class INFODEMICCORE_API UIDS_InformationCollection : public UGenericGraph, publi
 	UIDS_InformationCollection();
 
 	UPROPERTY(EditAnywhere, Category=Information)
-	FAssetTagObserver InheritedInformationObserver = {Parents, UIDS_InformationBundle::StaticClass()};
+	FAssetTagObserver InheritedInformationObserver;
 
 	UPROPERTY(EditAnywhere, Category=Information)
 	TSet<TSoftObjectPtr<UIDS_InformationBundle>> UniqueInformationCollection;

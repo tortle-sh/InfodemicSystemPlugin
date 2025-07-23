@@ -8,7 +8,10 @@ void UIDS_InformationBundle::PostLoadSubobjects(FObjectInstancingGraph* OuterIns
 	Super::PostLoadSubobjects(OuterInstanceGraph);
 	UE_LOG(InfodemicCore, Display, TEXT("%s loaded"), *GetFName().ToString());
 
-	InformationCategories.InitializeSubject(this, Children);
+	FDefaultSubjectConfig Config;
+	Config.Subject = this;
+	Config.BroadcastStrategy = Children;
+	InformationCategories.InitializeSubject(Config);
 }
 
 void UIDS_InformationBundle::OnDeleteAsset_Implementation()
