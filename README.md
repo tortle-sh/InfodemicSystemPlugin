@@ -1,6 +1,9 @@
 # InfodemicSystemPlugin
 The InfodemicSystemPlugin (also referenced as InfodemicDB) is approaching to define a knowledge graph using Unreal Engine 5 DataAssets, which can be stored in a graph database like Neo4j.
 
+## Supported Databases
+- Neo4j
+
 ## How information is being persisted
 The main data types if InfodemicDB are
 - IDS_Node,
@@ -65,7 +68,8 @@ since child categories are here being interpreted as specializations of knowledg
 
 <img width="962" height="560" alt="image" src="https://github.com/user-attachments/assets/c0f84941-21e6-4b5f-aaa6-c9ee7adba5e7" />
 
-
+## Category Initialization
+In order to use the categorization system, all information bundles and collections have to be automatically loaded during the start of the engine, using the either [uInfodemicAssetManager](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/InfodemicAssetManager.h), or a custom AssetManager which does the same (see https://dev.epicgames.com/documentation/en-us/unreal-engine/asset-management-in-unreal-engine)
 
 
 
