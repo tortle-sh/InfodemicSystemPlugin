@@ -69,7 +69,7 @@ since child categories are here being interpreted as specializations of knowledg
 <img width="962" height="560" alt="image" src="https://github.com/user-attachments/assets/c0f84941-21e6-4b5f-aaa6-c9ee7adba5e7" />
 
 ## Category Initialization
-In order to use the categorization system, all information bundles and collections have to be automatically loaded during the start of the engine, using the either [uInfodemicAssetManager](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/InfodemicAssetManager.h), or a custom AssetManager which does the same (see https://dev.epicgames.com/documentation/en-us/unreal-engine/asset-management-in-unreal-engine)
+In order to use the categorization system, all information bundles and collections have to be automatically loaded during the start of the engine, using the either [InfodemicAssetManager](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/InfodemicAssetManager.h), or a custom AssetManager which does the same (see https://dev.epicgames.com/documentation/en-us/unreal-engine/asset-management-in-unreal-engine)
 
 
 
