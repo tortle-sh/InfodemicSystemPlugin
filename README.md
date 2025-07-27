@@ -17,6 +17,8 @@ The main data types if InfodemicDB are
 ### IDS_Node
 https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/nodes/IDS_Node.h
 
+Create with `Content Browser > (Right click) > Infodemic System > IDS Node`
+
 An IDS_Node is a PrimaryDataAsset which represents a unique node in a property knowledge graph. The IDS_Node class only contains a id and nodeType attribute, but the class can be extended to add more properties.
 The node types are being set via the nodeTypes GameplayTagContainer, while each tag and parent tag is being translated into its own types, while the root tag is being ignored. For example, if a BlackSmith node has the "Knowledge.Profession.Smith" type, 
 then the BlackSmith node has the distinct node types "Profession" and "Smith".
@@ -25,7 +27,10 @@ then the BlackSmith node has the distinct node types "Profession" and "Smith".
 <img width="252" height="205" alt="node-data-asset-files" src="https://github.com/user-attachments/assets/9eb3d745-ded1-4217-8c86-839afc9cfe1c" />
 
 ### IDS_Relation
-https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_Relation.h
+[IDS_Relation.h](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_Relation.h)
+[IDS_Relation.cpp](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Private/base/IDS_Relation.cpp)
+
+Create with `Content Browser > (Right click) > Infodemic System > Information Relation`
 
 Relation are being defined via the IDS_Relation data asset. It consists of the RelationName, used as the name inside database and a start- and end node type used for defining defining compatible node types.
 > Node: Relations with properties are currently not supported!
@@ -34,7 +39,8 @@ Relation are being defined via the IDS_Relation data asset. It consists of the R
 <img width="366" height="190" alt="image" src="https://github.com/user-attachments/assets/aa388399-4b58-4bf3-a398-87b19f110a3c" />
 
 ### IDS_Information
-https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_Information.h
+[IDS_Information.h](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_Information.h)
+[IDS_Information.cpp](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Private/base/IDS_Information.cpp)
 
 An IDS_Information is a struct representing an information triplet, consisting of a start node, a relation and an end node. An information can consist of a single start node without a relation or end node.
 On the validation process of an asset containing this struct, the start and end note types are being compared to the types defined in the used relation.
@@ -42,7 +48,10 @@ The type tags are only valid if one of its assigned node are either an exact mat
 "Knowledge.Place" and its child tags like "Knowledge.Place.Village". However, if the relation type requires "Knowledge.Place.Village", then assigning a node of type "Knowledge.Place" throws an error.
 
 ### IDS_InformationBundle
-https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_InformationBundle.h
+[IDS_InformationBundle.h](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_InformationBundle.h)
+[IDS_InformationBundle.cpp](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Private/base/IDS_InformationBundle.cpp)
+
+Create with `Content Browser > (Right click) > Infodemic System > Information Bundle`
 
 An Information bundle is here defined as the smallest possible set of information triplets, which are required to represent a complex information.
 An InformationBundle could for example define multiple members of a family, without defining the entire family tree.
@@ -56,7 +65,10 @@ To make InformationBundles more managable they can be categorized via GameplayTa
 <img width="914" height="592" alt="image" src="https://github.com/user-attachments/assets/2821c02f-cb00-4633-ba19-b88322653c76" />
 
 ### IDS_InformationCollection
-https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_InformationCollection.h
+[IDS_InformationCollection.h](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Public/base/IDS_InformationCollection.h)
+[IDS_InformationCollection.h](https://github.com/tortle-sh/InfodemicSystemPlugin/blob/master/Source/InfodemicCore/Private/base/IDS_InformationCollection.cpp)
+
+Create with `Content Browser > (Right click) > Infodemic System > IDS Information Collection`
 
 An information collection persists all information bundles which are relevant in a specific knowledge domain. If the InformationCollection is used to represent 
 the entire knowledge base of a specific character, it contains all InformationBundles/all the knowledge that the charater should have access to.
