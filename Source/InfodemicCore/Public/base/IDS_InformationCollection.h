@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "AssetTagObserver.h"
-#include "GenericGraph.h"
 #include "OnDeleteAsset.h"
 #include "base/IDS_InformationBundle.h"
 #include "nodes/IDS_Node_Character.h"
@@ -13,7 +12,7 @@
 class UIDS_InformationBundle;
 
 UCLASS(BlueprintType)
-class INFODEMICCORE_API UIDS_InformationCollection : public UGenericGraph, public IOnDeleteAsset
+class INFODEMICCORE_API UIDS_InformationCollection : public UPrimaryDataAsset, public IOnDeleteAsset
 {
 	GENERATED_BODY()
 

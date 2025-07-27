@@ -5,5 +5,5 @@
 
 uint32 FIDSAssetTypeActions_Base::GetCategories()
 {
-	return MyCategory;
+	return InfodemicCategory;
 }

@@ -10,6 +10,7 @@
 #include "Widgets/Text/STextBlock.h"
 #include "ToolMenus.h"
 #include "InformationBundle/AssetTypeActions_IDS_InformationBundle.h"
+#include "InformationCollection/AssetTypeActions_IDS_InformationCollection.h"
 #include "InformationRelation/AssetTypeActions_IDS_Relation.h"
 #include "Node/AssetTypeActions_IDS_Node.h"
 #include "Tabs/SFullGraphView.h"
@@ -51,6 +52,7 @@ void FInfodemicEditorModule::StartupModule()
 
 	FAssetTypeActionRegistry::RegisterActions(ACTION_NAMESPACE,{
 		MakeShared<FAssetTypeActions_IDS_InformationBundle>(InfodemicEditorCategoryBit),
+		MakeShared<FAssetTypeActions_IDS_InformationCollection>(InfodemicEditorCategoryBit),
 		MakeShared<FAssetTypeActions_IDS_Node>(InfodemicEditorCategoryBit),
 		MakeShared<FAssetTypeActions_IDS_Relation>(InfodemicEditorCategoryBit)
 	});

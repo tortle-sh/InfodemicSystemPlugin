@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UObject/Object.h"
+#include "Factories/Factory.h"
 #include "Factory_IDS_InformationCollection.generated.h"
 
 /**
@@ -13,4 +13,8 @@ UCLASS()
 class INFODEMICEDITOR_API UFactory_IDS_InformationCollection : public UFactory
 {
 	GENERATED_BODY()
+	UFactory_IDS_InformationCollection();
+	
+	virtual UObject* FactoryCreateNew(UClass* InClass, UObject* InParent, FName InName, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn) override;
+	virtual bool ConfigureProperties() override;
 };

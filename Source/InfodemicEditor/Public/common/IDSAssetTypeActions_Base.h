@@ -12,11 +12,11 @@
 class INFODEMICEDITOR_API FIDSAssetTypeActions_Base : public FAssetTypeActions_Base
 {
 protected:
-	EAssetTypeCategories::Type MyCategory;
+	EAssetTypeCategories::Type InfodemicCategory;
 
 public:
-	explicit FIDSAssetTypeActions_Base(EAssetTypeCategories::Type MyCategory)
-		: MyCategory(MyCategory)
+	explicit FIDSAssetTypeActions_Base(EAssetTypeCategories::Type InfodemicCategory)
+		: InfodemicCategory(InfodemicCategory)
 	{
 	}
 

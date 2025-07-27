@@ -10,7 +10,6 @@ public class InfodemicCore : ModuleRules
             new string[]
             {
                 "Core", 
-                "GenericGraphRuntime",
                 "AssetTagTreeRuntime",
                 "DataValidation"
             }

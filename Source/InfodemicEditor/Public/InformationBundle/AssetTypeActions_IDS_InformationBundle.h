@@ -5,14 +5,12 @@
 #include "CoreMinimal.h"
 #include "common/IDSAssetTypeActions_Base.h"
 
-/**
- * 
- */
 class INFODEMICEDITOR_API FAssetTypeActions_IDS_InformationBundle : public FIDSAssetTypeActions_Base
 {
 public:
 	explicit FAssetTypeActions_IDS_InformationBundle(EAssetTypeCategories::Type MyCategory);
 
+private:
 	virtual UClass* GetSupportedClass() const override;
 	virtual FText GetName() const override;
 	virtual FColor GetTypeColor() const override;

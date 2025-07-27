@@ -3,18 +3,10 @@
 #include "InfodemicConstants.h"
 #include "InfodemicCore.h"
 #include "db/InfodemicDbSubsystem.h"
-#include "graph/IDS_GraphEdge.h"
-#include "graph/IDS_GraphNode.h"
 
 
-UIDS_InformationCollection::UIDS_InformationCollection()
+UIDS_InformationCollection::UIDS_InformationCollection(): InheritedInformationObserver()
 {
-	NodeType = UIDS_GraphNode::StaticClass();
-	EdgeType = UIDS_GraphEdge::StaticClass();
-
-	UIDS_GraphNode *Node = NewObject<UIDS_GraphNode>();
-	Node->SetNodeTitle(FText::FromString("test"));
-	AllNodes.Add(Node);
 }
 
 void UIDS_InformationCollection::PreEditChange(FProperty* PropertyAboutToChange)

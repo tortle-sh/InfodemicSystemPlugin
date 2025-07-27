@@ -15,11 +15,6 @@
 	"Installed": false,
 	"Modules": [
 		{
-			"Name": "InfodemicSystem",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		},
-		{
 			"Name": "InfodemicCore",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
@@ -30,21 +25,12 @@
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "InfodemicNodes",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "Default"
-		},
-		{
 			"Name": "InfodemicNeo4jConnector",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
-		{
-			"Name": "GenericGraph",
-			"Enabled": true
-		},
 		{
 			"Name": "BA_Neo4j",
 			"Enabled": true

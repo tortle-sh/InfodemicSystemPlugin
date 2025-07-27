@@ -44,8 +44,7 @@ public class InfodemicEditor : ModuleRules
 				"Slate",
 				"SlateCore",
 				"InfodemicCore",
-				"ClassViewer",
-				"GenericGraphEditor"
+				"ClassViewer"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
